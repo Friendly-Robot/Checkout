@@ -5,7 +5,7 @@
 "use strict";
 
 import React from "react";
-import ReactNative from "react-native";
+import * as ReactNative from "react-native";
 import AppColors from "./AppColors";
 
 export function Text({
