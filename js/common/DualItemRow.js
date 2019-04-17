@@ -9,32 +9,37 @@ import { StyleSheet, View } from "react-native";
 import { Heading3 } from "./AppText";
 
 type Props = {
+  children: Object,
   bodyStyle: Object,
   itemLeftStyle: Object,
   itemRightStyle: Object,
-  itemLeft: string,
-  itemRight: string
 };
 const DualItemRow = ({
+  children = {},
   bodyStyle = {},
   itemLeftStyle = {},
   itemRightStyle = {},
-  itemLeft = "",
-  itemRight = ""
 }: Props) => {
   return (
     <View style={[styles.wrapper, bodyStyle]}>
-      <Heading3 style={[styles.left, itemLeftStyle]}>{itemLeft}</Heading3>
-      <Heading3 style={[styles.right, itemRightStyle]}>{itemRight}</Heading3>
+      <View style={[styles.left, itemLeftStyle]}>
+        {children[0]}
+      </View>
+      <View style={[styles.right, itemRightStyle]}>
+        {children[1]}
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   left: {
+    flex: 1,
     marginRight: 10
   },
   right: {
+    alignItems: "flex-end",
+    flex: 1,
     marginLeft: 10
   },
   wrapper: {
