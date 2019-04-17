@@ -13,8 +13,9 @@ import { Heading3 } from "../../common/AppText";
 import AppColors from "../../common/AppColors";
 import AppButton from "../../common/AppButton";
 import DualItemRow from "../../common/DualItemRow";
-import SavingsTooltip from "./SavingsTooltip";
 import Divider from "../../common/Divider";
+import SavingsTooltip from "./SavingsTooltip";
+import ItemDetails from "./ItemDetails";
 import { fixed, sum, x100 } from "../../utils/moneyUtils";
 
 type props = {
@@ -67,6 +68,7 @@ const Summary = ({
           showDetails ? "Hide item details" : "See item details",
           showDetails ? "  -" : "  +",
           () => setShowDetails(!showDetails))}
+        {showDetails && <ItemDetails items={items} savings={savings} discount={discount} />}
 
         <Divider margin={0} />
         
@@ -124,6 +126,7 @@ const styles = StyleSheet.create({
     color: AppColors.red
   },
   scrollview: {
+    backgroundColor: AppColors.white,
     borderColor: AppColors.lightGray,
     borderRadius: 10,
     borderWidth: 1,
