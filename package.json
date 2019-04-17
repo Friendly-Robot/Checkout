@@ -3,15 +3,25 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
+    "android": "react-native run-android",
+    "apk": "cd android && ./gradlew assembleRelease",
+    "debug": "adb shell input keyevent 82 && adb shell input keyevent 61 && adb shell input keyevent 66 && adb shell input keyevent 66",
+    "devmenu": "adb shell input keyevent 82",
+    "devtools": "react-devtools",
+    "fastlane": "cd ios && fastlane ios beta",
+    "flow": "flow",
+    "ios": "react-native run-ios",
+    "reload": "adb shell input keyevent 82 && adb shell input keyevent 66 && adb shell input keyevent 66",
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest"
+    "test": "node node_modules/jest/bin/jest.js --watchAll --verbose --coverage"
   },
   "dependencies": {
     "react": "16.8.3",
     "react-native": "0.59.4",
     "react-redux": "^7.0.2",
     "redux": "^4.0.1",
-    "redux-logger": "^3.0.6"
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.3",
