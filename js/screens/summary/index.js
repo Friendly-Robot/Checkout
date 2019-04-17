@@ -13,7 +13,7 @@ import { Heading3 } from "../../common/AppText";
 import AppColors from "../../common/AppColors";
 import AppButton from "../../common/AppButton";
 import DualItemRow from "../../common/DualItemRow";
-import Tooltip from "../../common/Tooltip";
+import SavingsTooltip from "./SavingsTooltip";
 import Divider from "../../common/Divider";
 
 type props = {
@@ -27,7 +27,6 @@ const Summary = ({
 
   const [showDetails, setShowDetails] = useState(false);
   const [showPromo, setShowPromo] = useState(false);
-  const [showTooltip, setShowTooltip] = useState(false);
   
   const subtotal = (items.reduce((acc, curr) => acc += (curr.price * 100), 0) / 100).toFixed(2);
   const discount = promo ? (((subtotal * 100) * (promo / 100)) / 100).toFixed(2) : 0;
@@ -46,13 +45,7 @@ const Summary = ({
 
         {renderDiscount(discount)}
 
-        {renderTooltip(`-${savings}`, () => setShowTooltip(!showTooltip))}
-        {showTooltip &&
-          <Tooltip
-            closeModal={() => setShowTooltip(!showTooltip)}
-            content={"Picking up your order in the store helps cut costs, and we pass the savings on to you."}
-            visible={showTooltip}
-          />}
+        <SavingsTooltip savings={savings} />
 
         <DualItemRow>
           <Heading3>Est. taxes & fees</Heading3>
@@ -96,19 +89,6 @@ const renderDiscount = (discount) => {
   );
 }
 
-const renderTooltip = (savings, onPress) => (
-  <DualItemRow>
-    <AppButton
-      caption={"Pickup savings"}
-      captionStyle={{...styles.tooltipCaption, ...styles.underline}}
-      onPress={onPress}
-      theme={"none"}
-      type={"none"}
-    />
-    <Heading3 style={[styles.bold, styles.red]}>{savings}</Heading3>
-  </DualItemRow>
-);
-
 const renderButton = (caption, icon, onPress) => (
   <DualItemRow
     itemLeftStyle={{ flex: 0, marginRight: 0 }}
@@ -141,22 +121,12 @@ const styles = StyleSheet.create({
   red: {
     color: AppColors.red
   },
-  row: {
-    flexDirection: "row"
-  },
   scrollview: {
     borderColor: AppColors.lightGray,
     borderRadius: 10,
     borderWidth: 1,
     padding: 15,
     margin: 25
-  },
-  tooltipCaption: {
-    color: AppColors.black
-  },
-  tooltipWrapper: {
-    alignItems: "center",
-    justifyContent: "space-between"
   },
   total: {
     fontSize: 25
