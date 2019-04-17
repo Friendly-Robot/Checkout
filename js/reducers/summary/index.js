@@ -12,15 +12,15 @@ import promoCodes from "../../data/promoCodes";
 
 type State = {
   items: Array<Item>,
-  discount: number
+  promo: number
 };
 
 const initialState: State = {
   items: [getInitialItem()],
-  discount: 0
+  promo: 0
 };
 
-const summary: (state: State, action: Action) => State = (state = initialState, action = {}) => {
+function summary(state: State = initialState, action: Action = {}): State {
   if (action.type === "UPDATE_ITEM") {
     const itemIndex = findIndexOfItem(state.items, action.item);
     if (!isNaN(itemIndex)) {
@@ -33,7 +33,7 @@ const summary: (state: State, action: Action) => State = (state = initialState, 
   if (action.type === "SUBMIT_PROMO") {
     const promoIndex = promoCodes.indexOf(action.promo);
     if (promoIndex > -1) {
-      return { ...state, discount: 10 };
+      return { ...state, promo: 10 };
     }
     return state;
   }
