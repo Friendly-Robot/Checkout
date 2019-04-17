@@ -6,7 +6,7 @@
 
 import React, { useState } from "react";
 import { findNodeHandle, StyleSheet, View } from "react-native";
-import NativeMethodsMixin from 'NativeMethodsMixin';
+// import NativeMethodsMixin from 'NativeMethodsMixin';
 import AppButton from "../../common/AppButton";
 import AppColors from "../../common/AppColors";
 import { Heading3 } from "../../common/AppText";
@@ -56,12 +56,13 @@ const SavingsTooltip = ({
 const timeoutLayout = cb => setTimeout(cb, 0);
 
 const onTooltipLayout = (ref, setTooltipBounds) => {
-  if (ref) {
-    NativeMethodsMixin.measureInWindow.call(
-      findNodeHandle(ref),
-      (x, y) => setTooltipBounds({ x, y })
-    );
-  }
+  // if (ref) {
+  //   NativeMethodsMixin.measureInWindow.call(
+  //     findNodeHandle(ref),
+  //     (x, y) => setTooltipBounds({ x, y })
+  //   );
+  // }
+  setTooltipBounds({ x: 42, y: 115 });
 }
 
 const styles = StyleSheet.create({
