@@ -113,8 +113,8 @@ const renderTotal = total => (
 
 const renderButton = (caption, icon, onPress) => (
   <DualItemRow
-    itemLeftStyle={{ flex: 0, marginRight: 0 }}
-    itemRightStyle={{ alignItems: "flex-start", marginLeft: 0 }}
+    itemLeftStyle={{ flex: 1, marginRight: 0 }}
+    itemRightStyle={{ alignItems: "flex-start", flex: 2.5, marginLeft: 0 }}
   >
     <AppButton
       caption={caption}
