@@ -14,10 +14,11 @@ import { Text } from "./AppText";
 */
 
 type Props = {
-  bodyStyle: Object,
+  bodyStyle?: Object,
   closeModal: Function,
   content: String,
-  contentStyle: Object,
+  contentStyle?: Object,
+  transparent?: Boolean,
   visible: Boolean
 };
 const ToolTip = ({
@@ -25,19 +26,22 @@ const ToolTip = ({
   closeModal = () => {},
   content = "",
   contentStyle = {},
+  transparent = true,
   visible = false
 }: Props) => {
   return (
     <Modal
       animationType={"fade"}
       onRequestClose={closeModal}
+      transparent={transparent}
       visible={visible}
     >
       <View style={styles.wrapper}>
         <TouchableWithoutFeedback
           onPress={closeModal}
-          style={styles.exitArea}
-        />
+        >
+          <View style={styles.exitArea} />
+        </TouchableWithoutFeedback>
 
         <View style={[styles.contentWrapper, bodyStyle]}>
           <Text style={[styles.content, contentStyle]}>{content}</Text>
@@ -53,11 +57,12 @@ const styles = StyleSheet.create({
   },
   contentWrapper: {
     alignItems: "center",
-    borderColor: AppColors.black,
+    borderColor: AppColors.lightGray,
     borderRadius: 5,
     borderWidth: 1,
     backgroundColor: AppColors.white,
     justifyContent: "center",
+    marginVertical: 20,
     padding: 10,
     paddingBottom: 15,
     position: "absolute",
