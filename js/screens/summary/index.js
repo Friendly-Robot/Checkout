@@ -89,7 +89,7 @@ const renderDiscount = (discount) => {
   return (
     <DualItemRow>
       <Heading3>PROMO APPLIED</Heading3>
-      <Heading3 style={{...styles.bold, ...styles.red}}>{`-$${discount}`}</Heading3>
+      <Heading3 style={[styles.bold, styles.red]}>{`-$${discount}`}</Heading3>
     </DualItemRow>
   );
 }

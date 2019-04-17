@@ -33,7 +33,7 @@ const SavingsTooltip = ({
       <DualItemRow>
         <AppButton
           caption={"Pickup savings"}
-          captionStyle={{...styles.tooltipCaption, ...styles.underline}}
+          captionStyle={[styles.tooltipCaption, styles.underline]}
           hitSlop={5}
           onPress={() => setShowTooltip(!showTooltip)}
           theme={"none"}
@@ -44,7 +44,7 @@ const SavingsTooltip = ({
 
       {showTooltip &&
           <Tooltip
-            bodyStyle={{ left: tooltipBounds.x, top: tooltipBounds.y,  ...styles.tooltipWrapper }}
+            bodyStyle={[{ left: tooltipBounds.x, top: tooltipBounds.y }, styles.tooltipWrapper ]}
             closeModal={() => setShowTooltip(!showTooltip)}
             content={"Picking up your order in the store helps cut costs, and we pass the savings on to you."}
             visible={showTooltip}
