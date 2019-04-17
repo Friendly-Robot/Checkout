@@ -39,7 +39,7 @@ const SavingsTooltip = ({
           theme={"none"}
           type={"none"}
         />
-        <Heading3 style={[styles.bold, styles.red]}>{savings}</Heading3>
+        <Heading3 style={[styles.bold, styles.red]}>{`-$${savings}`}</Heading3>
       </DualItemRow>
 
       {showTooltip &&
