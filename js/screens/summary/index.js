@@ -15,6 +15,7 @@ import AppButton from "../../common/AppButton";
 import DualItemRow from "../../common/DualItemRow";
 import SavingsTooltip from "./SavingsTooltip";
 import Divider from "../../common/Divider";
+import { fixed, sum, x100 } from "../../utils/moneyUtils";
 
 type props = {
   items: Array<Item>,
@@ -28,12 +29,11 @@ const Summary = ({
   const [showDetails, setShowDetails] = useState(false);
   const [showPromo, setShowPromo] = useState(false);
   
-  const subtotal = (items.reduce((acc, curr) => acc += (curr.price * 100), 0) / 100).toFixed(2);
-  const discount = promo ? (((subtotal * 100) * (promo / 100)) / 100).toFixed(2) : 0;
-  const savings = (items.reduce((acc, curr) => acc += (curr.savings * 100), 0) / 100).toFixed(2);
-  const taxes = (items[0]) ?
-    ((((subtotal * 100) * (items[0].tax)) / 100) / 100).toFixed(2) : 0;
-  const total = (((subtotal * 100) - (savings * 100) - (discount * 100) + (taxes * 100)) / 100).toFixed(2);
+  const subtotal = fixed(items.reduce((acc, curr) => acc += x100(curr.price), 0));
+  const discount = promo ? fixed(x100(subtotal) * (promo / 100)) : 0;
+  const savings = fixed(items.reduce((acc, curr) => acc += x100(curr.savings), 0));
+  const taxes = (items[0]) ? fixed((x100(subtotal) * (items[0].tax)) / 100) : 0;
+  const total = sum(subtotal, -savings, -discount, taxes);;
 
   return (
     <View style={styles.wrapper}>
