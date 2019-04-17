@@ -62,7 +62,7 @@ const onTooltipLayout = (ref, setTooltipBounds) => {
   //     (x, y) => setTooltipBounds({ x, y })
   //   );
   // }
-  setTooltipBounds({ x: 42, y: 115 });
+  setTooltipBounds({ x: 42, y: 15 });
 }
 
 const styles = StyleSheet.create({
