@@ -28,7 +28,6 @@ const Summary = ({
   const [showDetails, setShowDetails] = useState(false);
   const [showPromo, setShowPromo] = useState(false);
   const [showTooltip, setShowTooltip] = useState(false);
-
   
   const subtotal = (items.reduce((acc, curr) => acc += (curr.price * 100), 0) / 100).toFixed(2);
   const discount = promo ? (((subtotal * 100) * (promo / 100)) / 100).toFixed(2) : 0;
@@ -47,7 +46,13 @@ const Summary = ({
 
         {renderDiscount(discount)}
 
-        {renderTooltip(`-${savings}`, setShowTooltip)}
+        {renderTooltip(`-${savings}`, () => setShowTooltip(!showTooltip))}
+        {showTooltip &&
+          <Tooltip
+            closeModal={() => setShowTooltip(!showTooltip)}
+            content={"Picking up your order in the store helps cut costs, and we pass the savings on to you."}
+            visible={showTooltip}
+          />}
 
         <DualItemRow>
           <Heading3>Est. taxes & fees</Heading3>
