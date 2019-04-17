@@ -7,17 +7,17 @@
 import type { Action } from "../types";
 import type { Item, Promo } from "./types";
 
-updateItem = (): => Action = (item: Item): Action => ({
+const updateItem = () => Action = (item: Item) => ({
   type: "UPDATE_ITEM",
   item
-}),
+});
 
-submitPromo = (): => Action = (promo: Promo): Action => ({
+const submitPromo = () => Action = (promo: Promo) => ({
   type: "SUBMIT_PROMO",
   promo
-})
+});
 
 export {
   updateItem,
-  submitpromo
+  submitPromo
 };
