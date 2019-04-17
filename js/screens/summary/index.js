@@ -41,31 +41,22 @@ const Summary = ({
 
   return (
     <View style={styles.wrapper}>
-      <ScrollView contentContainerStyle={styles.scrollview}>
-        <DualItemRow>
-          <Heading3>Subtotal</Heading3>
-          <Heading3 style={styles.bold}>{`$${subtotal}`}</Heading3>
-        </DualItemRow>
+      <ScrollView
+        contentContainerStyle={styles.scrollview}
+        keyboardShouldPersistTaps={"always"}
+      >
+
+        {renderSubtotal(subtotal)}
 
         {renderDiscount(discount)}
 
         <SavingsTooltip savings={savings} />
 
-        <DualItemRow>
-          <Heading3>Est. taxes & fees</Heading3>
-          <Heading3 style={styles.bold}>{`$${taxes}`}</Heading3>
-        </DualItemRow>
-
-        <DualItemRow>
-          <Heading3>{items[0] && `(Based on ${items[0].zipcode})`}</Heading3>
-        </DualItemRow>
+        {renderTaxes(taxes, items[0])}
 
         <Divider margin={20} />
 
-        <DualItemRow>
-          <Heading3 style={[styles.bold, styles.total]}>Est. total</Heading3>
-          <Heading3 style={[styles.bold, styles.total]}>{`$${total}`}</Heading3>
-        </DualItemRow>
+        {renderTotal(total)}
 
         {renderButton(
           showDetails ? "Hide item details" : "See item details",
@@ -86,6 +77,13 @@ const Summary = ({
   );
 }
 
+const renderSubtotal = subtotal => (
+  <DualItemRow>
+    <Heading3>Subtotal</Heading3>
+    <Heading3 style={styles.bold}>{`$${subtotal}`}</Heading3>
+  </DualItemRow>
+);
+
 const renderDiscount = (discount) => {
   if (!discount) return null;
   return (
@@ -95,6 +93,23 @@ const renderDiscount = (discount) => {
     </DualItemRow>
   );
 }
+
+const renderTaxes = (taxes, item) => (
+  <View>
+    <DualItemRow>
+      <Heading3>Est. taxes & fees</Heading3>
+      <Heading3 style={styles.bold}>{`$${taxes}`}</Heading3>
+    </DualItemRow>
+    <Heading3>{item && `(Based on ${item.zipcode})`}</Heading3>
+  </View>
+);
+
+const renderTotal = total => (
+  <DualItemRow>
+    <Heading3 style={[styles.bold, styles.total]}>Est. total</Heading3>
+    <Heading3 style={[styles.bold, styles.total]}>{`$${total}`}</Heading3>
+  </DualItemRow>
+);
 
 const renderButton = (caption, icon, onPress) => (
   <DualItemRow
