@@ -1,0 +1,190 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PromoEntry /> renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "marginVertical": 10,
+    }
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "rgba(3, 3, 3, 1)",
+          "fontSize": 17,
+        },
+        Object {
+          "color": "rgba(208, 208, 208, 1)",
+          "marginLeft": 10,
+        },
+      ]
+    }
+  >
+    Promo code
+  </Text>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "alignSelf": "stretch",
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+        },
+        Object {},
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "flex": 1,
+            "marginRight": 10,
+          },
+          Object {},
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "flex": 1,
+              "justifyContent": "center",
+              "marginVertical": 5,
+              "paddingHorizontal": 5,
+              "paddingVertical": 5,
+            },
+            Object {
+              "borderColor": "rgba(208, 208, 208, 1)",
+              "borderRadius": 1,
+              "borderWidth": 1,
+            },
+            Object {},
+          ]
+        }
+      >
+        <TextInput
+          allowFontScaling={true}
+          autoCapitalize="characters"
+          maxLength={50}
+          multiline={false}
+          onChangeText={[Function]}
+          onSubmitEditing={[Function]}
+          rejectResponderTermination={true}
+          style={
+            Array [
+              Object {
+                "color": "rgba(0, 114, 206, 1)",
+                "fontSize": 17,
+              },
+              Object {
+                "borderColor": undefined,
+                "color": "rgba(3, 3, 3, 1)",
+              },
+            ]
+          }
+          textAlign="left"
+          underlineColorAndroid="rgba(255, 255, 255, 1)"
+        />
+      </View>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "flex-end",
+            "flex": 1,
+            "marginLeft": 10,
+          },
+          Object {
+            "alignItems": "flex-start",
+            "flex": 0.3,
+            "marginLeft": 15,
+          },
+        ]
+      }
+    >
+      <View
+        accessible={true}
+        hitSlop={
+          Object {
+            "bottom": 5,
+            "left": 5,
+            "right": 5,
+            "top": 5,
+          }
+        }
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "height": 32,
+            "opacity": 1,
+          }
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "borderRadius": 26,
+                "flex": 1,
+                "flexDirection": "row",
+                "justifyContent": "center",
+                "paddingHorizontal": 30,
+              },
+              Object {
+                "backgroundColor": "transparent",
+                "borderColor": "rgba(0, 114, 206, 1)",
+                "borderWidth": 1,
+              },
+              Object {
+                "paddingHorizontal": 15,
+              },
+              Object {
+                "opacity": 1,
+              },
+            ]
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "rgba(3, 3, 3, 1)",
+                },
+                Array [
+                  Object {
+                    "fontSize": 15,
+                    "textAlign": "center",
+                  },
+                  Object {
+                    "color": "rgba(0, 114, 206, 1)",
+                  },
+                  Object {
+                    "fontSize": 13,
+                  },
+                  undefined,
+                  undefined,
+                ],
+              ]
+            }
+          >
+            Apply
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;

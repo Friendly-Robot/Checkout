@@ -1,0 +1,147 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SavingsTooltip /> renders correctly 1`] = `
+<View
+  onLayout={[Function]}
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "alignSelf": "stretch",
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+        },
+        Object {},
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "flex": 1,
+            "marginRight": 10,
+          },
+          Object {},
+        ]
+      }
+    >
+      <View
+        accessible={true}
+        hitSlop={
+          Object {
+            "bottom": 5,
+            "left": 5,
+            "right": 5,
+            "top": 5,
+          }
+        }
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "height": 52,
+            "opacity": 1,
+          }
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "borderRadius": 26,
+                "flex": 1,
+                "flexDirection": "row",
+                "justifyContent": "center",
+                "paddingHorizontal": 30,
+              },
+              Object {
+                "backgroundColor": "transparent",
+                "padding": 0,
+              },
+              Object {
+                "borderRadius": 0,
+                "justifyContent": "flex-start",
+                "paddingHorizontal": 0,
+              },
+              Object {
+                "opacity": 1,
+              },
+            ]
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "rgba(3, 3, 3, 1)",
+                },
+                Array [
+                  Object {
+                    "fontSize": 15,
+                    "textAlign": "center",
+                  },
+                  Object {
+                    "color": "rgba(0, 114, 206, 1)",
+                  },
+                  Object {
+                    "textAlign": "left",
+                  },
+                  undefined,
+                  Object {
+                    "color": "rgba(3, 3, 3, 1)",
+                    "textDecorationLine": "underline",
+                  },
+                ],
+              ]
+            }
+          >
+            Pickup savings
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "flex-end",
+            "flex": 1,
+            "marginLeft": 10,
+          },
+          Object {},
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "rgba(3, 3, 3, 1)",
+              "fontSize": 17,
+            },
+            Array [
+              Object {
+                "fontWeight": "500",
+              },
+              Object {
+                "color": "rgba(240, 52, 52, 1)",
+              },
+            ],
+          ]
+        }
+      >
+        -$0
+      </Text>
+    </View>
+  </View>
+</View>
+`;
