@@ -5,7 +5,7 @@
 "use strict";
 
 import React, { useState } from "react";
-import { ScrollView, StyleSheet, View } from "react-native";
+import { Keyboard, ScrollView, StyleSheet, View } from "react-native";
 import { connect } from "react-redux";
 import { updateItem, submitPromo } from "../../actions/summary";
 import { Item } from "../../actions/types";
@@ -172,8 +172,10 @@ const select = (store) => ({
 
 const actions = (dispatch) => ({
   onUpdateItem: item => dispatch(updateItem(item)),
-  onPromoSubmit: promo => dispatch(submitPromo(promo)),
-  dispatch
+  onPromoSubmit: (promo) => {
+    Keyboard.dismiss();
+    dispatch(submitPromo(promo))
+  },
 });
 
 export default connect(select, actions)(Summary);
