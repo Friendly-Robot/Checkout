@@ -40,30 +40,31 @@ const Summary = ({
   return (
     <View style={styles.wrapper}>
       <ScrollView contentContainerStyle={styles.scrollview}>
-        <DualItemRow
-          itemLeft={"Subtotal"}
-          itemRight={`$${subtotal}`}
-          itemRightStyle={styles.bold}
-        />
+        <DualItemRow>
+          <Heading3>Subtotal</Heading3>
+          <Heading3 style={styles.bold}>{`$${subtotal}`}</Heading3>
+        </DualItemRow>
 
         {renderDiscount(discount)}
+
         {renderTooltip(`-${savings}`, setShowTooltip)}
 
-        <DualItemRow
-          itemLeft={"Est. taxes & fees"}
-          itemRight={`$${taxes}`}
-          itemRightStyle={styles.bold}
-        />
-        <DualItemRow itemLeft={items[0] && `(Based on ${items[0].zipcode})`} />
+        <DualItemRow>
+          <Heading3>Est. taxes & fees</Heading3>
+          <Heading3 style={styles.bold}>{`$${taxes}`}</Heading3>
+        </DualItemRow>
+
+        <DualItemRow>
+          <Heading3>{items[0] && `(Based on ${items[0].zipcode})`}</Heading3>
+        </DualItemRow>
 
         <Divider margin={20} />
 
-        <DualItemRow
-          itemLeft={"Est. total"}
-          itemLeftStyle={{...styles.bold, ...styles.total}}
-          itemRight={`$${total}`}
-          itemRightStyle={{...styles.bold, ...styles.total}}
-        />
+        <DualItemRow>
+          <Heading3 style={[styles.bold, styles.total]}>Est. total</Heading3>
+          <Heading3 style={[styles.bold, styles.total]}>{`$${total}`}</Heading3>
+        </DualItemRow>
+
         {renderButton(
           showDetails ? "Hide item details" : "See item details",
           showDetails ? "  -" : "  +",
@@ -83,15 +84,15 @@ const Summary = ({
 const renderDiscount = (discount) => {
   if (!discount) return null;
   return (
-    <View style={[styles.row, styles.tooltipWrapper]}>
+    <DualItemRow>
       <Heading3>PROMO APPLIED</Heading3>
       <Heading3 style={{...styles.bold, ...styles.red}}>{`- ${discount}`}</Heading3>
-    </View>
+    </DualItemRow>
   );
 }
 
 const renderTooltip = (savings, onPress) => (
-  <View style={[styles.row, styles.tooltipWrapper]}>
+  <DualItemRow>
     <AppButton
       caption={"Pickup savings"}
       captionStyle={{...styles.tooltipCaption, ...styles.underline}}
@@ -99,12 +100,15 @@ const renderTooltip = (savings, onPress) => (
       theme={"none"}
       type={"none"}
     />
-    <Heading3 style={{...styles.bold, ...styles.red}}>{savings}</Heading3>
-  </View>
+    <Heading3 style={[styles.bold, styles.red]}>{savings}</Heading3>
+  </DualItemRow>
 );
 
 const renderButton = (caption, icon, onPress) => (
-  <View style={styles.row}>
+  <DualItemRow
+    itemLeftStyle={{ flex: 0, marginRight: 0 }}
+    itemRightStyle={{ alignItems: "flex-start", marginLeft: 0 }}
+  >
     <AppButton
       caption={caption}
       captionStyle={styles.underline}
@@ -119,7 +123,7 @@ const renderButton = (caption, icon, onPress) => (
       theme={"none"}
       type={"none"}
     />
-  </View>
+  </DualItemRow>
 );
 
 const styles = StyleSheet.create({
