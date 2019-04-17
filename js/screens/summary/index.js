@@ -16,14 +16,17 @@ import DualItemRow from "../../common/DualItemRow";
 import Divider from "../../common/Divider";
 import SavingsTooltip from "./SavingsTooltip";
 import ItemDetails from "./ItemDetails";
+import PromoEntry from "./PromoEntry";
 import { fixed, sum, x100 } from "../../utils/moneyUtils";
 
 type props = {
   items: Array<Item>,
+  onPromoSubmit: function,
   promo: String
 };
 const Summary = ({
   items = [],
+  onPromoSubmit = () => {},
   promo = 0
 }: Props) => {
 
@@ -76,6 +79,8 @@ const Summary = ({
           showPromo ? "Hide promo code" : "Apply promo code",
           showPromo ? "  -" : "  +",
           () => setShowPromo(!showPromo))}
+        {showPromo && <PromoEntry handlePromoSubmit={onPromoSubmit} />}
+
       </ScrollView>
     </View>
   );
