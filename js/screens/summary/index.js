@@ -97,6 +97,7 @@ const renderButton = (caption, icon, onPress) => (
     <AppButton
       caption={caption}
       captionStyle={styles.underline}
+      hitSlop={5}
       onPress={onPress}
       theme={"none"}
       type={"none"}
@@ -104,6 +105,7 @@ const renderButton = (caption, icon, onPress) => (
     <AppButton
       caption={icon}
       captionStyle={styles.icon}
+      hitSlop={5}
       onPress={onPress}
       theme={"none"}
       type={"none"}

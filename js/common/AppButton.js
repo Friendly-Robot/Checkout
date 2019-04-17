@@ -23,12 +23,14 @@ class AppButton extends React.Component {
     icon?: number,
     caption?: string,
     captionStyle?: object,
+    hitSlop?: number,
     style?: any,
     fontSize?: number,
     onPress: () => mixed
   };
 
   static defaultProps = {
+    hitSlop: 0,
     opacity: 1,
     theme: "white"
   };
@@ -39,6 +41,7 @@ class AppButton extends React.Component {
     const { caption, captionStyle, icon, fontSize, opacity } = this.props;
     const { buttonTheme, iconTheme, captionTheme } = this.getTheme();
     const { containerType, buttonType, iconType, captionType } = this.getType();
+    const hitSlop = this.getHitSlop();
 
     let iconImage;
     if (icon) {
@@ -67,8 +70,9 @@ class AppButton extends React.Component {
       return (
         <TouchableOpacity
           accessibilityTraits="button"
-          onPress={this.props.onPress}
           activeOpacity={0.5}
+          onPress={this.props.onPress}
+          hitSlop={hitSlop}
           style={[styles.container, containerType, this.props.style]}
         >
           {content}
@@ -136,6 +140,11 @@ class AppButton extends React.Component {
     }
 
     return { containerType, buttonType, iconType, captionType };
+  }
+
+  getHitSlop() {
+    const { hitSlop } = this.props;
+    return { top: hitSlop, right: hitSlop, bottom: hitSlop, left: hitSlop };
   }
 }
 

@@ -34,6 +34,7 @@ const SavingsTooltip = ({
         <AppButton
           caption={"Pickup savings"}
           captionStyle={{...styles.tooltipCaption, ...styles.underline}}
+          hitSlop={5}
           onPress={() => setShowTooltip(!showTooltip)}
           theme={"none"}
           type={"none"}
